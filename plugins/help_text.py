@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 import os
-
+from pyrogram.enums import ParseMode
 from config import Config
 # the Strings used for this "thing"
 from translation import Translation
@@ -32,7 +32,7 @@ async def help_user(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.HELP_USER,
-        parse_mode="html",
+        parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [[
