@@ -31,7 +31,7 @@ async def echo(bot, update):
     FSub = await ForceSub(bot, update)
     if FSub == 400:
         return
-    imog = await update.reply_text("**Processing... ⚡**", reply_to_message_id=update.message_id)
+    imog = await update.reply_text("**Processing... ⚡**", reply_to_message_id=update.id)
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
