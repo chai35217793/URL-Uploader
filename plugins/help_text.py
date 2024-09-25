@@ -46,7 +46,7 @@ async def help_user(bot, update):
                   InlineKeyboardButton('🔻 Subscribe Now YouTube 🔻', url='https://youtube.com/playlist?list=PLzkiTywVmsSfmhaDdWNZ5PRmmMKGTIxPJ')
             ]]
         ),
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.message.id
     )
 
 @Client.on_message(filters.private & filters.command(["start"]))
@@ -71,5 +71,5 @@ async def start(bot, update):
                   InlineKeyboardButton('🔻 Subscribe Now YouTube 🔻', url='https://youtube.com/playlist?list=PLzkiTywVmsSfmhaDdWNZ5PRmmMKGTIxPJ')
             ]]
         ),
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.message.id
     )
