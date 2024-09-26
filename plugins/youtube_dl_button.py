@@ -4,12 +4,12 @@
 import yt_dlp
 
 ydl_opts = {
-    'cookiefile': 'plugins/cookies.txt'
+    'cookiefile': 'plugins/cookies.txt',  # Added missing comma
     'format': 'best',
 }
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([youtube_url]
+    ydl.download([youtube_url])  # Added closing parenthesis
 
 
 # the logging things
