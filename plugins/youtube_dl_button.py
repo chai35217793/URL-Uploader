@@ -183,7 +183,7 @@ async def youtube_dl_call_back(bot, update):
             await bot.edit_message_text(
                 text=Translation.UPLOAD_START,
                 chat_id=update.message.chat.id,
-                message_id=update.id
+                message_id=update.message.id
             )
             # ref: message from @JOSPSupport
             start_time = time.time()
@@ -272,6 +272,6 @@ async def youtube_dl_call_back(bot, update):
             await bot.edit_message_text(
                 text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS.format(time_taken_for_download, time_taken_for_upload),
                 chat_id=update.message.chat.id,
-                message_id=update.id,
+                message_id=update.message.id,
                 disable_web_page_preview=True
             )
