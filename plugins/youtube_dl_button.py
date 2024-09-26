@@ -39,7 +39,7 @@ async def youtube_dl_call_back(bot, update):
     except (FileNotFoundError) as e:
         await bot.delete_messages(
             chat_id=update.message.chat.id,
-            message_ids=update.message.id,
+            message_ids=update.id,
             revoke=True
         )
         return False
@@ -88,7 +88,7 @@ async def youtube_dl_call_back(bot, update):
     await bot.edit_message_text(
         text=Translation.DOWNLOAD_START,
         chat_id=update.message.chat.id,
-        message_id=update.message.id
+        message_id=update.id
     )
     user = await bot.get_me()
     mention = user["mention"]
@@ -157,7 +157,7 @@ async def youtube_dl_call_back(bot, update):
         error_message = e_response.replace(ad_string_to_replace, "")
         await bot.edit_message_text(
             chat_id=update.message.chat.id,
-            message_id=update.message.id,
+            message_id=update.id,
             text=error_message
         )
         return False
@@ -183,7 +183,7 @@ async def youtube_dl_call_back(bot, update):
             await bot.edit_message_text(
                 text=Translation.UPLOAD_START,
                 chat_id=update.message.chat.id,
-                message_id=update.message.id
+                message_id=update.id
             )
             # ref: message from @JOSPSupport
             start_time = time.time()
@@ -272,6 +272,6 @@ async def youtube_dl_call_back(bot, update):
             await bot.edit_message_text(
                 text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS.format(time_taken_for_download, time_taken_for_upload),
                 chat_id=update.message.chat.id,
-                message_id=update.message.id,
+                message_id=update.id,
                 disable_web_page_preview=True
             )
