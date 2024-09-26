@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-import yt_dlp
-
 ydl_opts = {
-    'cookiefile': 'cookies.txt',  # Path to your cookies file
+    'cookiefile': 'plugins/cookies.txt',  # Path to your cookies file in the plugins folder
     'format': 'best',
 }
 
