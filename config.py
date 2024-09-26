@@ -30,4 +30,4 @@ class Config(object):
     DATABASE_NAME = "JOSProjects"
     DATABASE_URL = os.environ.get("DATABASE_URL", "")
     MAX_RESULTS = "50"
-    AUTH_CHANNEL = os.environ.get("AUTH_CHANNEL", "NONE")
+    AUTH_CHANNEL = os.environ.get("AUTH_CHANNEL", "zole_library")
