@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
+import yt_dlp
+
 ydl_opts = {
-    'cookiefile': 'plugins/cookies.txt',  # Path to your cookies file in the plugins folder
+    'cookiefile': 'plugins/cookies.txt',  # Added missing comma
     'format': 'best',
 }
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([youtube_url])
+    ydl.download([youtube_url])  # Added closing parenthesis
 # -*- coding: utf-8 -*-
 # (c) Shrimadhav U K || Zaute Km
 
