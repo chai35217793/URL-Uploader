@@ -4,7 +4,7 @@
 import yt_dlp
 
 ydl_opts = {
-    cookiefile': 'plugins/cookies.txt'
+    'cookiefile': 'plugins/cookies.txt'
     'format': 'best',
 }
 
