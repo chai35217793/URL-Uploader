@@ -1,15 +1,37 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K | Zaute Km
 import yt_dlp
+from pyrogram import Client, filters
 
 ydl_opts = {
-    'cookiefile': 'plugins/cookies.txt',  # Added missing comma
+    'cookiefile': 'plugins/cookies.txt',
     'format': 'best',
 }
 
-with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([youtube_url])  # Added closing parenthesis
+# Assuming your bot instance is created somewhere else in your main file
+app = Client("my_bot")
+
+@app.on_message(filters.text)  # Trigger on any text message
+async def handle_message(client, message):
+    youtube_url = message.text  # Get the URL from the user's message
+    
+    # Optional: Validate URL
+    if "youtube.com" in youtube_url or "youtu.be" in youtube_url:
+        await download_video(youtube_url, message.chat.id)  # Pass the URL and chat ID
+    else:
+        await client.send_message(message.chat.id, "Please send a valid YouTube URL.")
+
+async def download_video(youtube_url, chat_id):
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        try:
+            await app.send_message(chat_id, "Starting download...")
+            ydl.download([youtube_url])
+            await app.send_message(chat_id, "Download complete!")
+        except Exception as e:
+            await app.send_message(chat_id, f"Error downloading video: {e}")
+
+# The rest of your bot's setup should handle the event loop and start the bot
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# (c) Shrimadhav U K | Zaute Km
 
 
 # the logging things
