@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # (c) Shrimadhav U K | Zaute Km
+import yt_dlp
+
+ydl_opts = {
+    'cookiefile': 'cookies.txt',  # Path to your cookies file
+    'format': 'best',
+}
+
+with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([youtube_url])
+
 
 # the logging things
 import logging
